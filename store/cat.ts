@@ -8,12 +8,16 @@ export const useCatStore = defineStore("cats", {
   }),
   actions: {
     async getData() {
-      await $fetch("/cats", {
-        method: "GET",
-      }).then((res: CatImage) => {
-        this.data = res;
+      try {
+        const res = await $fetch("/cats", {
+          method: "GET",
+        });
+        this.data = res as CatImage;
+      } catch (error) {
+        console.error("Error fetching cat data:", error);
+      } finally {
         this.loading = false;
-      });
+      }
     },
   },
 });
