@@ -18,6 +18,9 @@ const handleLogout = () => {
 onMounted(async () => {
   await catStore.getData();
 });
+definePageMeta({
+  middleware: "auth",
+});
 </script>
 <template>
   <div
