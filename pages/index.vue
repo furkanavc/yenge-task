@@ -15,8 +15,8 @@ const handleLogout = () => {
     alert("Logged Out");
   });
 };
-onMounted(async () => {
-  await catStore.getData();
+onMounted(() => {
+  catStore.getData();
 });
 definePageMeta({
   middleware: "auth",
@@ -30,7 +30,7 @@ definePageMeta({
       <template #header>
         <h1 class="items-center font-black">CATS</h1>
       </template>
-      <div class="min-w-96 max-w-96 h-96 overflow-hidden">
+      <div class="w-96 h-96 overflow-hidden">
         <Transition name="slide-fade">
           <img
             v-if="!loading"
