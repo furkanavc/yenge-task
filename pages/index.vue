@@ -4,11 +4,12 @@ import { useCatStore } from "../store/cat";
 import { useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
+import loadingImage from "@/assets/images/loading.png";
 
 const router = useRouter();
 const { logout } = useAuthStore();
 const catStore = useCatStore();
-const { data, loading } = storeToRefs(catStore) as any;
+const { data, loading } = storeToRefs(catStore);
 const handleLogout = () => {
   logout();
   router.push("/login").then(() => {
@@ -30,13 +31,12 @@ definePageMeta({
       <template #header>
         <h1 class="items-center font-black">CATS</h1>
       </template>
-      <div class="w-96 h-96 overflow-hidden">
+      <div class="max-w-96 h-96 overflow-hidden">
         <Transition name="slide-fade">
           <img
-            v-if="!loading"
-            :src="data[0]?.url"
+            :src="loading ? loadingImage : data?.url"
             class="object-cover w-full h-full"
-            :key="data[0]?.id"
+            :key="data?.id"
           />
         </Transition>
       </div>

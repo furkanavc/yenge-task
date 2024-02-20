@@ -1,24 +1,22 @@
-interface Credentials {
+export interface Credentials {
   username: string;
   password: string;
 }
 
-interface AuthStoreState {
+export interface AuthStoreState {
   isLoggedIn: boolean;
   username: string;
   name: string;
 }
 
-interface CatImage {
+export interface CatImage {
   breeds: any[];
   id: string;
   url: string;
   width: number;
   height: number;
 }
-interface CatStoreState {
-  data: CatImage | null;
+export interface CatStoreState {
+  data?: CatImage;
   loading: boolean;
 }
-
-export type { Credentials, AuthStoreState, CatStoreState, CatImage };
