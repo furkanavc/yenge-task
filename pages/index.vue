@@ -31,11 +31,13 @@ definePageMeta({
         <h1 class="items-center font-black">CATS</h1>
       </template>
       <div class="min-w-96 max-w-96 h-96">
-        <img
-          v-if="!loading"
-          :src="data[0]?.url"
-          class="object-cover w-full h-full"
-        />
+        <Transition name="fade">
+          <img
+            v-if="!loading"
+            :src="data[0]?.url"
+            class="object-cover w-full h-full"
+          />
+        </Transition>
       </div>
       <template #footer>
         <div class="flex w-full justify-between">
@@ -46,3 +48,14 @@ definePageMeta({
     </UCard>
   </div>
 </template>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

@@ -7,6 +7,7 @@ export const useAuthStore = defineStore("auth", {
     username: "",
     name: "",
   }),
+  persist: true,
   actions: {
     async login(credentials: Credentials) {
       this.isLoggedIn = true;
