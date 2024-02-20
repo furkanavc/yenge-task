@@ -6,7 +6,6 @@ export const useCatStore = defineStore("cats", {
     data: null,
     loading: true,
   }),
-  persist: true,
   actions: {
     async getData() {
       try {
