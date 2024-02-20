@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   nitro: {
     routeRules: {
       "/cats": {
-        proxy: "https://api.thecatapi.com/v1/images/search",
+        proxy: `${process.env.CATS_URL}`,
         headers: {
           "x-api-key": `${process.env.CATS_API_KEY}`,
           "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     },
     devProxy: {
       "/cats": {
-        target: "https://api.thecatapi.com/v1/images/search",
+        target: `${process.env.CATS_URL}`,
         changeOrigin: true,
         headers: {
           "x-api-key": `${process.env.CATS_API_KEY}`,
