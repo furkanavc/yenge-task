@@ -30,12 +30,13 @@ definePageMeta({
       <template #header>
         <h1 class="items-center font-black">CATS</h1>
       </template>
-      <div class="min-w-96 max-w-96 h-96">
-        <Transition name="fade">
+      <div class="min-w-96 max-w-96 h-96 overflow-hidden">
+        <Transition name="slide-fade">
           <img
             v-if="!loading"
             :src="data[0]?.url"
             class="object-cover w-full h-full"
+            :key="data[0]?.id"
           />
         </Transition>
       </div>
@@ -49,13 +50,17 @@ definePageMeta({
   </div>
 </template>
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
   opacity: 0;
 }
 </style>
