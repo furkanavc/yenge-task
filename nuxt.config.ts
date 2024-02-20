@@ -12,6 +12,8 @@ export default defineNuxtConfig({
           "Content-Type": "application/json",
         },
       },
+      "/login": { ssr: false },
+      "/": { ssr: false },
     },
     devProxy: {
       "/cats": {
