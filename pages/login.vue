@@ -18,6 +18,9 @@ const handleLogin = async () => {
     alert("Incorrect Credentials");
   }
 };
+definePageMeta({
+  middleware: "auth",
+});
 </script>
 <template>
   <div
@@ -50,6 +53,7 @@ const handleLogin = async () => {
           >
         </div>
       </div>
+      username: admin password: asdfasdf
     </UCard>
   </div>
 </template>
