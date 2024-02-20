@@ -1,18 +1,7 @@
 import { defineStore } from "pinia";
+import type { CatStoreState, CatImage } from "~/types";
 
-interface CatImage {
-  breeds: any[]; // Tür dizisi, bu veri tipi hakkında daha fazla bilgi edinilirse güncellenebilir
-  id: string;
-  url: string;
-  width: number;
-  height: number;
-}
-interface CatStoreState {
-  data: CatImage | null;
-  loading: boolean;
-}
-
-export const useCatStore = defineStore("data", {
+export const useCatStore = defineStore("cats", {
   state: (): CatStoreState => ({
     data: null,
     loading: true,

@@ -1,16 +1,16 @@
 import { defineStore } from "pinia";
-import type { Credentials } from "~/types";
+import type { Credentials, AuthStoreState } from "~/types";
 
 export const useAuthStore = defineStore("auth", {
-  state: () => ({
+  state: (): AuthStoreState => ({
     isLoggedIn: false,
     username: "",
     name: "",
   }),
   actions: {
-    async login({ username, password }: Credentials) {
+    async login(credentials: Credentials) {
       this.isLoggedIn = true;
-      this.username = username;
+      this.username = credentials.username;
       this.name = "Admin";
     },
     logout() {
