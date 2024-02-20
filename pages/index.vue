@@ -34,7 +34,6 @@ onMounted(async () => {
           class="object-cover w-full h-full"
         />
       </div>
-      <span class="text-red-500 style">asdasda</span>
       <template #footer>
         <div class="flex w-full justify-between">
           <UButton @click="catStore.getData()">Change</UButton>
