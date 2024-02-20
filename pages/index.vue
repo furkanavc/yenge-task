@@ -8,7 +8,7 @@ import { onMounted } from "vue";
 const router = useRouter();
 const { logout } = useAuthStore();
 const catStore = useCatStore();
-const { data, loading } = storeToRefs(catStore);
+const { data, loading } = storeToRefs(catStore) as any;
 const handleLogout = () => {
   logout();
   router.push("/login").then(() => {
