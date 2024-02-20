@@ -31,7 +31,7 @@ definePageMeta({
       <template #header>
         <h1 class="items-center font-black">CATS</h1>
       </template>
-      <div class="max-w-96 h-96 overflow-hidden">
+      <div class="max-[384px]:w-full w-96 h-96 overflow-hidden">
         <Transition name="slide-fade">
           <img
             :src="loading ? loadingImage : data?.url"
